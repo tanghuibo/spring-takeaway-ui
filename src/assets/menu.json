@@ -1,16 +1,13 @@
-{
-  "name":"基础信息",
-  "icon":"",
-  "children": [
-    {
-      "name": "Spring基础信息",
-      "icon":"",
-      "url":""
+[{
+  "title": "基础信息",
+  "icon": "",
+  "children": [{
+      "title": "Spring基础信息",
+      "url": "/spring"
     },
     {
-      "name": "JVM基础信息",
-      "icon":"",
-      "url":""
+      "title": "JVM基础信息",
+      "url": "/jvm"
     }
   ]
-}
+}]
