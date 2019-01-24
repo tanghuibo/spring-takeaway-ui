@@ -15,10 +15,19 @@ $--font-path: '~element-ui/lib/theme-chalk/fonts';
   border-right: none;
 }
 
-.scrollbar-wrapper {
+.left-scrollbar-wrapper {
   overflow-x: hidden !important;
 
   .el-scrollbar__view {
     height: 94vh;
+  }
+}
+
+
+.right-scrollbar-wrapper {
+  overflow-x: hidden !important;
+
+  .el-scrollbar__view {
+    height: 100vh;
   }
 }

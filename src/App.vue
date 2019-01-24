@@ -7,27 +7,26 @@
             <TextHoverEffect class="mallki-txt" text="spring-takeaway" />
           </div>
           <div>
-            <el-scrollbar wrap-class="scrollbar-wrapper">
+            <el-scrollbar wrap-class="left-scrollbar-wrapper">
               <MenuView/>
             </el-scrollbar>
           </div>
         </div>
       </el-col>
       <el-col :span="21">
-        <div class="right-head">1</div>
-        <GithubCorner url="https://github.com/tanghuibo/spring-takeaway-ui"/>
+       <el-scrollbar wrap-class="right-scrollbar-wrapper">
+          <router-view/>
+        </el-scrollbar>
       </el-col>
     </el-row>
   </div>
 </template>
 
 <script>
-import GithubCorner from "@/components/GithubCorner/GithubCorner.vue";
 import TextHoverEffect from "@/components/TextHoverEffect/TextHoverEffect.vue";
 import MenuView from "@/components/MenuView/MenuView.vue";
 export default {
   components: {
-    GithubCorner,
     TextHoverEffect,
     MenuView
   },

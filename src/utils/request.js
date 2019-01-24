@@ -10,17 +10,19 @@ service.interceptors.request.use(
     return config
   },
   error => {
-    console.log(error) // for debug
     Promise.reject(error)
   }
 )
 
 service.interceptors.response.use(
   response => {
-    return response.data;
+    let data = response.data;
+    if(data.success) {
+      return data.data;
+    }
+    throw new Error(data.message);
   },
   error => {
-    console.log('err' + error) // for debug
     return Promise.reject(error)
   }
 )

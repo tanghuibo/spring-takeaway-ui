@@ -53,7 +53,6 @@ export default {
     },
     changeMenuActive(path) {
        this.activitiIndex = this.menuUrlMap[path];
-       console.log(this.activitiIndex);
        
     }
   },
