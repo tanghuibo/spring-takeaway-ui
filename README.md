@@ -1,29 +1,16 @@
-# spring-takeaway-ui
 
-## Project setup
-```
-yarn install
-```
+### 项目说明
 
-### Compiles and hot-reloads for development
-```
-yarn run serve
-```
+此项目为spring takeaway的ui子项目，用于给spring takeaway编写web页面
+[spring takeaway项目地址](https://github.com/tanghuibo/spring-takeaway)
 
-### Compiles and minifies for production
-```
-yarn run build
-```
+### 启动方式
 
-### Run your tests
-```
-yarn run test
-```
+> yarn install 
+> yarn run serve
 
-### Lints and fixes files
-```
-yarn run lint
-```
+------
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+### 首页
+
+![cmd-markdown-logo](https://raw.githubusercontent.com/tanghuibo/spring-takeaway-ui/master/screenshot/%E9%A6%96%E9%A1%B5.jpg)
