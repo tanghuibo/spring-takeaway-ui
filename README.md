@@ -11,6 +11,6 @@
 
 ------
 
-### 首页
+### 首页展示
 
 ![cmd-markdown-logo](https://raw.githubusercontent.com/tanghuibo/spring-takeaway-ui/master/screenshot/%E9%A6%96%E9%A1%B5.jpg)
