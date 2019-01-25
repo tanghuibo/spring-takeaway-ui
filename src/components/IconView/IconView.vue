@@ -8,6 +8,9 @@
 export default {
   name: "IconView",
   props: {
+    /**
+     * 图标名称
+     */
     icon: {
       type: String
     }

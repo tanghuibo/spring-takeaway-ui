@@ -70,7 +70,7 @@ export default {
   methods: {
     /**
      * @description 改变菜单事件
-     * @param index 菜单id
+     * @param {String} index 菜单id
      * @returns
      *
      */
@@ -79,7 +79,7 @@ export default {
     },
     /**
      * @description 通过path改变激活的菜单
-     * @param path 菜单url
+     * @param {String} path 菜单url
      * @returns
      *
      */
