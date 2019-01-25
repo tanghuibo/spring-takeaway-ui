@@ -14,3 +14,7 @@
 ### 首页展示
 
 ![cmd-markdown-logo](https://raw.githubusercontent.com/tanghuibo/spring-takeaway-ui/master/screenshot/%E9%A6%96%E9%A1%B5.jpg)
+
+### JVM基础信息展示
+
+![cmd-markdown-logo](https://raw.githubusercontent.com/tanghuibo/spring-takeaway-ui/master/screenshot/jvm%E4%BF%A1%E6%81%AF%E9%A1%B5.jpg)
