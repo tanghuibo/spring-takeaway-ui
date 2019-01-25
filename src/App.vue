@@ -4,7 +4,7 @@
       <el-col :span="3">
         <div class="left">
           <div class="left-head" @click="goHome">
-            <TextHoverEffect class="mallki-txt" text="spring-takeaway" />
+            <text-hover-effect class="mallki-txt" text="spring-takeaway" />
           </div>
           <div>
             <el-scrollbar wrap-class="left-scrollbar-wrapper">

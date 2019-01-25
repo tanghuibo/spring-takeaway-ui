@@ -1,13 +1,20 @@
 [{
+  "title": "首页",
+  "icon": "icon-dashboard",
+  "url": "/"
+},{
   "title": "基础信息",
-  "icon": "",
+  "icon": "icon-base-info",
   "children": [{
       "title": "Spring基础信息",
-      "url": "/spring"
+      "url": "/spring",
+      "icon": "icon-spring"
     },
     {
       "title": "JVM基础信息",
-      "url": "/jvm"
+      "url": "/jvm",
+      "icon": "icon-java"
     }
   ]
 }]
+

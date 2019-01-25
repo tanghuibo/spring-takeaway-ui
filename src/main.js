@@ -4,7 +4,8 @@ import router from './router'
 import store from './store'
 import VCharts from 'v-charts'
 import ElementUI from 'element-ui'
-import './styles.scss'
+import '@/styles.scss'
+// import '@/assets/iconfont/iconfont.js'
 
 Vue.use(ElementUI)
 

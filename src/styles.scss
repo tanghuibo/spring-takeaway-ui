@@ -28,6 +28,19 @@ $--font-path: '~element-ui/lib/theme-chalk/fonts';
   overflow-x: hidden !important;
 
   .el-scrollbar__view {
-    height: 100vh;
+    height: 95vh;
+  }
+}
+
+.title-level1 {
+  font-size: large;
+  font-weight: 800;
+}
+
+.collapse-scrollbar-wrapper {
+
+  .el-scrollbar__view {
+    width: 100%;
+    height: 70vh;
   }
 }

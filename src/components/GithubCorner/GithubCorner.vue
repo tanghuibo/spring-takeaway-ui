@@ -25,7 +25,11 @@
 
 <script>
 export default {
+  name: "GithubCorner",
   props: {
+    /**
+     * 点击组件跳转的URL
+     */
     url: {
       type: String
     }

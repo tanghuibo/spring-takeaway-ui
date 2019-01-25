@@ -1,14 +1,42 @@
 <template>
   <div class="home">
     <div class="home-main">
-      <GithubCorner class="git_cat" url="https://github.com/tanghuibo/"/>
+      <github-corner class="git_cat" url="https://github.com/tanghuibo/"/>
       <ve-liquidfill :data="chartData" :settings="chartSettings"></ve-liquidfill>
       <div class="baseinfo">
         <el-form label-width="45vw" size="mini">
-          <el-form-item label="操作系统：" size="mini">{{this.baseInfo.osName}}</el-form-item>
-          <el-form-item label="cpu频率：" size="mini">{{this.cpuFrequencyInHz}}</el-form-item>
-          <el-form-item label="cpu核心数：" size="mini">{{this.baseInfo.numCpus}}</el-form-item>
-          <el-form-item label="内存：" size="mini">{{this.memoryTotalBytes}}</el-form-item>
+          <el-form-item size="mini">
+            <template slot="label">
+              <div>
+                <span style="margin-right: 28px">操作系统
+                  <IconView class="icon" icon="icon-os"/>
+                </span>：
+              </div>
+            </template>
+            {{this.baseInfo.osName}}
+          </el-form-item>
+
+          <el-form-item size="mini">
+            <template slot="label">
+              <div>
+                <span style="margin-right: 28px">CPU
+                  <IconView class="icon" icon="icon-cpu"/>
+                </span>：
+              </div>
+            </template>
+
+            {{`${this.baseInfo.numCpus}核 ${this.cpuFrequencyInHz}`}}
+          </el-form-item>
+          <el-form-item size="mini">
+            <template slot="label">
+              <div>
+                <span style="margin-right: 28px">内存
+                  <IconView class="icon" icon="icon-memory"/>
+                </span>：
+              </div>
+            </template>
+            {{this.memoryTotalBytes}}
+          </el-form-item>
         </el-form>
       </div>
     </div>
@@ -17,12 +45,14 @@
 
 <script>
 import GithubCorner from "@/components/GithubCorner/GithubCorner.vue";
+import IconView from "@/components/IconView/IconView.vue";
 import baseinfoApi from "@/serveapi/baseinfoApi.js";
 import commonUtil from "@/utils/commonUtil.js";
 export default {
   name: "home",
   components: {
-    GithubCorner
+    GithubCorner,
+    IconView
   },
   data() {
     this.chartSettings = {
@@ -56,14 +86,38 @@ export default {
     };
     return {
       baseInfo: {
+        /**
+         * cpu频率
+         */
         cpuFrequencyInHz: null,
+        /**
+         * cpu核心数
+         */
         numCpus: null,
+        /**
+         * 空闲内存大小(Byte)
+         */
         memoryFreeBytes: null,
+        /**
+         * 总内存大小
+         */
         memoryTotalBytes: null,
+        /**
+         * 操作系统名称
+         */
         osName: null,
+        /**
+         * cpu使用百分比
+         */
         cpuUsage: null,
+        /**
+         * 内存使用情况
+         */
         memoryUsage: null
       },
+      /**
+       * 定时器,页面销毁时需要手动销毁
+       */
       timer: null
     };
   },
@@ -78,20 +132,19 @@ export default {
     },
     memoryTotalBytes() {
       return (
-        commonUtil.numberChangeHumanSee(this.baseInfo.memoryTotalBytes) +
-        " Byte"
+        commonUtil.numberChangeHumanSee(this.baseInfo.memoryTotalBytes) + "Byte"
       );
     },
     chartData() {
       return {
-        columns: ["city", "percent"],
+        columns: ["key", "percent"],
         rows: [
           {
-            city: "CPU",
+            key: "CPU",
             percent: this.baseInfo.cpuUsage
           },
           {
-            city: "内存",
+            key: "内存",
             percent: this.baseInfo.memoryUsage
           }
         ]
@@ -115,6 +168,13 @@ export default {
 
 <style lang="scss" scoped>
 $cat_right: 32px;
+
+.icon {
+  width: 28px;
+  height: 28px;
+  line-height: 28px;
+  position: absolute;
+}
 .home {
   .home-main {
     padding: $cat_right;

@@ -8,6 +8,7 @@
 
 <script>
 export default {
+  name: "TextHoverEffect",
   props: {
     className: {
       type: String,
@@ -15,7 +16,7 @@ export default {
     },
     text: {
       type: String,
-      default: 'vue-element-admin'
+      default: ''
     }
   }
 }
