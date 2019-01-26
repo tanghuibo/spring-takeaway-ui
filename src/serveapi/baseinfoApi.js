@@ -16,5 +16,29 @@ export default {
    */
   getJvmProperties() {
     return req.get('/jvm/jvm-properties');
-  } 
+  },
+
+   /**
+   * @description 获取jvm配置信息
+   * @returns jvm配置属性
+   */
+  getClassLoaderClasses() {
+    return req.get('/jvm/classloader-class');
+  },
+
+  /**
+   * @description 获取spring配置信息
+   * @returns spring配置属性
+   */
+  getSpringProperties() {
+    return req.get('/spring/spring-properties');
+  },
+
+  /**
+   * @description 获取spring bean列表
+   * @returns spring bean列表
+   */
+  getSpringBeans() {
+    return req.get('/spring/spring-beans');
+  }
 };

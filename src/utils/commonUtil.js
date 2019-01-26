@@ -24,14 +24,29 @@ export default {
 
   /**
    * @description 判断字符串是否为空
-   * @param {String} obj 
+   * @param {string} obj 
    * @returns
    */
   isEmpty(obj) {
-    if (typeof obj == "undefined" || obj == null ||  (obj + "").trim() == "") {
+    if (typeof obj == "undefined" || obj == null || (obj + "").trim() == "") {
       return true;
     } else {
       return false;
     }
+  },
+  /**
+   * @description map转list
+   * @param {object} map 
+   * @returns list
+   */
+  mapToList(map) {
+    let list = [];
+    for (let key in map) {
+      list.push({
+        key,
+        value: map[key]
+      });
+    }
+    return list;
   }
 }

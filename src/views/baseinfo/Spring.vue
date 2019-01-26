@@ -1,11 +1,14 @@
 <template>
-  <div class="jvm">
+  <div class="spring">
     <el-tabs type="border-card">
-      <el-tab-pane label="JVM配置信息">
-        <all-sort-and-search-table :columns="jvmColumns" @getData="getJvmData"/>
+      <el-tab-pane label="Spring配置信息">
+        <all-sort-and-search-table
+          :columns="springPropertyColumns"
+          @getData="getspringPropertyData"
+        />
       </el-tab-pane>
-      <el-tab-pane label="Class信息">
-        <all-sort-and-search-table :columns="classColumns" @getData="getClass"/>
+      <el-tab-pane label="Spring Bean列表">
+        <all-sort-and-search-table :columns="springBeanColumns" @getData="getspringBeanData"/>
       </el-tab-pane>
     </el-tabs>
   </div>
@@ -21,8 +24,7 @@ export default {
   },
   data() {
     return {
-      activitiName: "jvmProperties",
-      jvmColumns: [
+      springPropertyColumns: [
         {
           key: "key",
           lable: "名称",
@@ -33,17 +35,16 @@ export default {
           lable: "属性"
         }
       ],
-      classColumns: [
+      springBeanColumns: [
         {
-          key: "simpleClassName",
-          lable: "类名",
+          key: "beanName",
+          lable: "名称",
           width: 230
         },
         {
-          key: "classLoaderName",
-          lable: "类加载器",
-          width: 230,
-          enSelect: true
+          key: "simpleClassName",
+          lable: "简类名",
+          width: 230
         },
         {
           key: "className",
@@ -53,18 +54,18 @@ export default {
     };
   },
   methods: {
-    async getJvmData(setData, searchOver) {
+    async getspringPropertyData(setData, searchOver) {
       try {
-        let jvmPropertieMap = await baseinfoApi.getJvmProperties();
-        let list = commonUtil.mapToList(jvmPropertieMap);
+        let springPropertieMap = await baseinfoApi.getSpringProperties();
+        let list = commonUtil.mapToList(springPropertieMap);
         setData(list);
       } finally {
         searchOver();
       }
     },
-    async getClass(setData, searchOver) {
+    async getspringBeanData(setData, searchOver) {
       try {
-        let list = await baseinfoApi.getClassLoaderClasses();
+        let list = await baseinfoApi.getSpringBeans();
         setData(list);
       } finally {
         searchOver();
@@ -75,7 +76,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.jvm {
+.spring {
   margin: 30px;
 }
 </style>
