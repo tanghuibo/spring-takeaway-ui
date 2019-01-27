@@ -43,7 +43,7 @@ export default {
           key: "classLoaderName",
           lable: "类加载器",
           width: 230,
-          enSelect: true
+          enSelectAble: true
         },
         {
           key: "className",

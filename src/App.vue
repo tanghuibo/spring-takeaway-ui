@@ -7,14 +7,14 @@
             <text-hover-effect class="mallki-txt" text="spring-takeaway" />
           </div>
           <div>
-            <el-scrollbar wrap-class="left-scrollbar-wrapper">
+            <el-scrollbar :native="false" wrap-class="left-scrollbar-wrapper">
               <MenuView/>
             </el-scrollbar>
           </div>
         </div>
       </el-col>
       <el-col :span="21">
-       <el-scrollbar wrap-class="right-scrollbar-wrapper">
+       <el-scrollbar :native="false" wrap-class="right-scrollbar-wrapper">
           <router-view/>
         </el-scrollbar>
       </el-col>

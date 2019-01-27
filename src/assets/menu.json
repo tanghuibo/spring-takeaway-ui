@@ -2,7 +2,7 @@
   "title": "首页",
   "icon": "icon-dashboard",
   "url": "/"
-},{
+}, {
   "title": "基础信息",
   "icon": "icon-base-info",
   "children": [{
@@ -16,5 +16,13 @@
       "icon": "icon-java"
     }
   ]
+}, {
+  "title": "数据库",
+  "icon": "icon-db",
+  "children": [{
+      "title": "数据库信息",
+      "url": "/db-info",
+      "icon": "icon-db-info"
+    }
+  ]
 }]
-

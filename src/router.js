@@ -22,6 +22,12 @@ export default new Router({
       path: '/spring',
       name: 'spring',
       component: () => import('./views/baseinfo/Spring.vue')
+    },
+    //数据库基础信息
+    {
+      path: '/db-info',
+      name: 'dbInfo',
+      component: () => import('./views/database/DatabaseInfo.vue')
     }
   ]
 })
