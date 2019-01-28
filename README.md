@@ -18,3 +18,8 @@
 ### JVM基础信息展示
 
 ![cmd-markdown-logo](https://raw.githubusercontent.com/tanghuibo/spring-takeaway-ui/master/screenshot/jvm%E4%BF%A1%E6%81%AF%E9%A1%B5.jpg)
+
+
+### 数据库信息展示
+
+![cmd-markdown-logo](https://raw.githubusercontent.com/tanghuibo/spring-takeaway-ui/master/screenshot/%E6%95%B0%E6%8D%AE%E5%BA%93%E9%A1%B5%E9%9D%A2.jpg)
