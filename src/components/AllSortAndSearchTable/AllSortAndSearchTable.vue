@@ -18,7 +18,7 @@
           <el-button type="primary" @click="search" :loading="loading">刷新</el-button>
         </el-form-item>
       </el-form>
-      <el-scrollbar  wrap-class="collapse-scrollbar-wrapper" :native="false">
+      <el-scrollbar wrap-class="collapse-scrollbar-wrapper" :native="false">
         <el-table
           v-loading="loading"
           :data="pageDataList"
@@ -28,6 +28,12 @@
           :default-sort="{prop: columns[0].key, order: 'ascending'}"
           @sort-change="sortChange"
         >
+          <el-table-column v-if="showPanel" type="expand">
+            <template slot-scope="{ row }">
+               <slot :data="row"></slot>
+            </template>
+           
+          </el-table-column>
           <el-table-column
             v-for="column in columns"
             :key="column.key"
@@ -61,6 +67,10 @@ export default {
      */
     columns: {
       type: Array
+    },
+    showPanel: {
+      type: Boolean,
+      default: false
     }
   },
   data() {
@@ -173,8 +183,10 @@ export default {
   methods: {
     setData(data) {
       this.allDataList = data;
-      
-      let enSelectAbleColumns = this.myColumns.filter(element => element.enSelectAble);
+
+      let enSelectAbleColumns = this.myColumns.filter(
+        element => element.enSelectAble
+      );
       enSelectAbleColumns.forEach(element => {
         element.selectList = data
           .map(element2 => element2[element.key])
@@ -183,7 +195,7 @@ export default {
     },
     /**
      * @description 排序改变事件
-     * @param {object} param 
+     * @param {object} param
      */
     sortChange(param) {
       this.sortKey = param.prop;

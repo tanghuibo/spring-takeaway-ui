@@ -40,5 +40,13 @@ export default {
    */
   getSpringBeans() {
     return req.get('/spring/spring-beans');
+  },
+
+  /**
+   * @description 获取jar包列表
+   * @returns jar包列表
+   */
+  getJars() {
+    return req.get('/jvm/jarList');
   }
 };

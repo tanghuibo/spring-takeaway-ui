@@ -25,7 +25,8 @@
               </div>
             </template>
 
-            {{`${this.baseInfo.numCpus}核 ${this.cpuFrequencyInHz}`}}
+            <!-- {{`${this.baseInfo.numCpus}核 ${this.cpuFrequencyInHz}`}} -->
+            {{`${this.baseInfo.numCpus}核`}}
           </el-form-item>
           <el-form-item size="mini">
             <template slot="label">
@@ -87,10 +88,6 @@ export default {
     return {
       baseInfo: {
         /**
-         * cpu频率
-         */
-        cpuFrequencyInHz: null,
-        /**
          * cpu核心数
          */
         numCpus: null,
@@ -125,11 +122,11 @@ export default {
     window.clearTimeout(this.timer);
   },
   computed: {
-    cpuFrequencyInHz() {
-      return (
-        commonUtil.numberChangeHumanSee(this.baseInfo.cpuFrequencyInHz) + " Hz"
-      );
-    },
+    // cpuFrequencyInHz() {
+    //   return (
+    //     commonUtil.numberChangeHumanSee(this.baseInfo.cpuFrequencyInHz) + " Hz"
+    //   );
+    // },
     memoryTotalBytes() {
       return (
         commonUtil.numberChangeHumanSee(this.baseInfo.memoryTotalBytes) + "Byte"

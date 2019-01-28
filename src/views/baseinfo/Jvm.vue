@@ -7,6 +7,9 @@
       <el-tab-pane label="Class信息">
         <all-sort-and-search-table :columns="classColumns" @getData="getClass"/>
       </el-tab-pane>
+      <el-tab-pane label="jar包信息">
+        <all-sort-and-search-table :columns="jarColumns" @getData="getJar"/>
+      </el-tab-pane>
     </el-tabs>
   </div>
 </template>
@@ -49,6 +52,18 @@ export default {
           key: "className",
           lable: "全类名"
         }
+      ],
+      jarColumns: [
+         {
+          key: "jarName",
+          lable: "名称",
+          width: 230
+        },
+        {
+          key: "jarPath",
+          lable: "路径"
+        }
+
       ]
     };
   },
@@ -65,6 +80,14 @@ export default {
     async getClass(setData, searchOver) {
       try {
         let list = await baseinfoApi.getClassLoaderClasses();
+        setData(list);
+      } finally {
+        searchOver();
+      }
+    },
+    async getJar(setData, searchOver) {
+      try {
+        let list = await baseinfoApi.getJars();
         setData(list);
       } finally {
         searchOver();
