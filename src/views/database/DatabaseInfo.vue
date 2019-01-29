@@ -1,7 +1,6 @@
 <template>
   <div class="database-info">
     <el-tabs type="border-card">
-      <el-tab-pane label="数据库信息"></el-tab-pane>
 
       <el-tab-pane label="表格信息">
         <all-sort-and-search-table showPanel :columns="tableColumns" @getData="getTableList">
@@ -17,7 +16,7 @@
 
 <script>
 import dataBaseApi from "@/serveapi/dataBaseApi.js";
-import AllSortAndSearchTable from "@/components/AllSortAndSearchTable/AllSortAndSearchTable.vue";
+import AllSortAndSearchTable from "@/components/Table/AllSortAndSearchTable.vue";
 import SqlView from "@/components/SqlView/SqlView.vue";
 export default {
   components: {

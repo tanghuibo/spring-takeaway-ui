@@ -1,7 +1,6 @@
 <template>
   <div v-loading="loading">
     <el-tabs type="border-card">
-      <el-tab-pane label="数据操作"></el-tab-pane>
       <el-tab-pane label="表格信息">
         <all-sort-and-search-table
           v-if="loadingOver"
@@ -15,7 +14,7 @@
 
 <script>
 
-import AllSortAndSearchTable from "@/components/AllSortAndSearchTable/AllSortAndSearchTable.vue";
+import AllSortAndSearchTable from "@/components/Table/AllSortAndSearchTable.vue";
 import dataBaseApi from "@/serveapi/dataBaseApi.js";
 export default {
   components: {

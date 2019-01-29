@@ -16,7 +16,7 @@
 
 <script>
 import baseinfoApi from "@/serveapi/baseinfoApi.js";
-import AllSortAndSearchTable from "@/components/AllSortAndSearchTable/AllSortAndSearchTable.vue";
+import AllSortAndSearchTable from "@/components/Table/AllSortAndSearchTable.vue";
 import commonUtil from "@/utils/commonUtil.js";
 export default {
   components: {
