@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
-import store from './store'
+import store from './store/index'
 import VCharts from 'v-charts'
 import ElementUI from 'element-ui'
 import '@/styles.scss'

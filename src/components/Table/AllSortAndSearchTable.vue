@@ -16,6 +16,7 @@
         <el-form-item>
           <el-button type="primary" @click="resetSearch">重置查询</el-button>
           <el-button type="primary" @click="search" :loading="loading">刷新</el-button>
+          <slot name="form" :data="selectData"></slot>
         </el-form-item>
       </el-form>
       <el-scrollbar wrap-class="collapse-scrollbar-wrapper" :native="false">
@@ -27,12 +28,13 @@
           style="margin-left: 5px;"
           :default-sort="{prop: columns[0].key, order: 'ascending'}"
           @sort-change="sortChange"
+          @selection-change="handleSelectionChange"
         >
+          <el-table-column v-if="showSelect" type="selection" width="55"></el-table-column>
           <el-table-column v-if="showPanel" type="expand">
             <template slot-scope="{ row }">
-               <slot :data="row"></slot>
+              <slot name="table" :data="row"></slot>
             </template>
-           
           </el-table-column>
           <el-table-column
             v-for="column in columns"
@@ -69,6 +71,10 @@ export default {
       type: Array
     },
     showPanel: {
+      type: Boolean,
+      default: false
+    },
+    showSelect: {
       type: Boolean,
       default: false
     }
@@ -126,7 +132,12 @@ export default {
       /**
        * 排序是否为升序
        */
-      sortOrderAsc: true
+      sortOrderAsc: true,
+
+      /**
+       * 被选中的数据
+       */
+      selectData: []
     };
   },
   mounted() {
@@ -151,9 +162,12 @@ export default {
 
       if (!commonUtil.isEmpty(this.sortKey)) {
         result.sort((item1, item2) => {
-          let compareResult = item1[this.sortKey].localeCompare(
-            item2[this.sortKey]
-          );
+          let compareResult = -1;
+          if (item1[this.sortKey] != null) {
+            compareResult = item1[this.sortKey].localeCompare(
+              item2[this.sortKey]
+            );
+          }
 
           compareResult = this.sortOrderAsc ? compareResult : -compareResult;
 
@@ -208,6 +222,12 @@ export default {
       for (let key in this.searchForm) {
         this.searchForm[key] = null;
       }
+    },
+    handleSelectionChange(selectData) {
+      this.selectData = selectData;
+    },
+    getSelectData() {
+      return [...this.selectData];
     },
     search() {
       this.loading = true;

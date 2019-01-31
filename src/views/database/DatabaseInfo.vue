@@ -1,16 +1,29 @@
 <template>
   <div class="database-info">
     <el-tabs type="border-card">
-
       <el-tab-pane label="表格信息">
-        <all-sort-and-search-table showPanel :columns="tableColumns" @getData="getTableList">
-          <template slot-scope="{ data }">
+        <all-sort-and-search-table
+          showPanel
+          showSelect
+          :columns="tableColumns"
+          @getData="getTableList"
+        >
+          <template slot="table" slot-scope="{ data }">
             <sql-view :model="data"/>
+          </template>
 
+          <template slot="form" slot-scope="{ data }">
+            <el-button
+              type="primary"
+              :disabled="data == null || data.length === 0"
+              @click="() => getGeneratorTable(data)"
+            >生成代码</el-button>
           </template>
         </all-sort-and-search-table>
+        <sql-generator-dialog ref="SqlGeneratorDialog"/>
       </el-tab-pane>
     </el-tabs>
+    
   </div>
 </template>
 
@@ -18,20 +31,16 @@
 import dataBaseApi from "@/serveapi/dataBaseApi.js";
 import AllSortAndSearchTable from "@/components/Table/AllSortAndSearchTable.vue";
 import SqlView from "@/components/SqlView/SqlView.vue";
+import SqlGeneratorDialog from "@/components/Dialog/SqlGeneratorDialog.vue";
 export default {
   components: {
     AllSortAndSearchTable,
-    SqlView
+    SqlView,
+    SqlGeneratorDialog
   },
   data() {
     return {
       tableColumns: [
-        {
-          key:"type",
-          lable:"类型",
-          width: 230,
-          enSelectAble: true
-        },
         {
           key: "tableName",
           lable: "表名",
@@ -44,6 +53,9 @@ export default {
       ]
     };
   },
+  comments() {
+    this.getDriverList();
+  },
   methods: {
     async getTableList(setData, searchOver) {
       try {
@@ -52,6 +64,9 @@ export default {
       } finally {
         searchOver();
       }
+    },
+    getGeneratorTable(data) {
+      this.$refs.SqlGeneratorDialog.open(data);
     }
   }
 };
