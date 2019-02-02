@@ -1,10 +1,11 @@
 import axios from 'axios'
+import constans from '@/constants/constants.json'
 import {
   Message
 } from 'element-ui';
 const service = axios.create({
   // api 的 base_url
-  baseURL: "/takeaway",
+  baseURL: constans.baseURL,
   // 超时时间
   timeout: 5000
 })

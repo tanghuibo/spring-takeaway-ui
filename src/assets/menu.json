@@ -25,4 +25,13 @@
       "icon": "icon-db-info"
     }
   ]
+}, {
+  "title": "接口文档",
+  "icon": "icon-document",
+  "children": [{
+      "title": "swagger接口文档",
+      "url": "/document-swagger",
+      "icon": "icon-swagger"
+    }
+  ]
 }]

@@ -28,6 +28,12 @@ export default new Router({
       path: '/db-info',
       name: 'dbInfo',
       component: () => import('./views/database/DatabaseInfo.vue')
+    },
+    //swagger接口文档
+    {
+      path: '/document-swagger',
+      name: 'swaggerApi',
+      component: () => import('./views/document/Swagger.vue')
     }
   ]
 })
