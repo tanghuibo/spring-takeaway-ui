@@ -34,4 +34,13 @@
       "icon": "icon-swagger"
     }
   ]
+}, {
+  "title": "实用工具",
+  "icon": "icon-tools",
+  "children": [{
+      "title": "JSON转JAVA",
+      "url": "/json-to-java",
+      "icon": "icon-json"
+    }
+  ]
 }]

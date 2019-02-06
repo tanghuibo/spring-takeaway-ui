@@ -1,5 +1,5 @@
 <template>
-  <el-dialog title="提示" :visible.sync="dialogVisible" width="70%" :before-close="handleClose">
+  <el-dialog title="提示" :visible.sync="dialogVisible" width="70%" >
     <div :v-loading="!defaultConfigInit">
       <el-form ref="form" :model="generatorConfig" label-width="150px">
         <el-form-item label="数据库url">
@@ -38,7 +38,7 @@
         </el-form-item>
         <el-form-item label="其它选项">
           <el-checkbox v-model="generatorConfig.entityLombokModel">使用lombok</el-checkbox>
-          <el-checkbox v-model="generatorConfig.fileOverride">是否覆盖已存在的文件</el-checkbox>
+          <el-checkbox v-model="generatorConfig.fileOverride">覆盖已存在的文件</el-checkbox>
         </el-form-item>
       </el-form>
     </div>
@@ -87,17 +87,11 @@ export default {
           item => item.tableName
         );
         await dataBaseApi.generatorCode(this.generatorConfig);
+        this.$message.success("代码生成成功");
         this.dialogVisible = false;
       } finally {
         this.loading = false;
       }
-    },
-    handleClose(done) {
-      this.$confirm("确认关闭？")
-        .then(() => {
-          done();
-        })
-        .catch(() => {});
     }
   }
 };

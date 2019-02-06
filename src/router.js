@@ -34,6 +34,12 @@ export default new Router({
       path: '/document-swagger',
       name: 'swaggerApi',
       component: () => import('./views/document/Swagger.vue')
+    },
+    //json转java工具
+    {
+      path: '/json-to-java',
+      name: 'jsonToJava',
+      component: () => import('./views/tools/JsonToJava.vue')
     }
   ]
 })

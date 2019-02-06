@@ -27,7 +27,7 @@ export default {
    * @retruns 默认配置信息
    */
   getDefaultConfig() {
-    return req.get('/mybatis-generator/default-generate-mybatis-config');
+    return req.get('/generator/default-generate-mybatis-config');
   },
 
   /**
@@ -36,7 +36,7 @@ export default {
    * @returns 生成结果
    */
   generatorCode( config ) {
-    return req.post('/mybatis-generator/mybatis-code', config);
+    return req.post('/generator/mybatis-code', config);
   },
 
   /**
