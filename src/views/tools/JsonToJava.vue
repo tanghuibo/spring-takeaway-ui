@@ -23,10 +23,9 @@ export default {
       cmOptions: {
         tabSize: 4,
         mode: "application/json",
-        theme: "idea",
+        theme: "base16-dark",
         lineNumbers: true,
         line: true
-        // more codemirror options, 更多 codemirror 的高级配置...
       }
     };
   },

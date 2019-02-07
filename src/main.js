@@ -5,7 +5,7 @@ import store from './store/index'
 import VCharts from 'v-charts'
 import ElementUI from 'element-ui'
 import '@/styles.scss'
-// import '@/assets/iconfont/iconfont.js'
+import '@/assets/iconfont/iconfont.js'
 import VueCodemirror from 'vue-codemirror'
 
 // require styles
