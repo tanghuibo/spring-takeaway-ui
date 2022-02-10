@@ -11,7 +11,7 @@
     "axios": "^0.18.0",
     "echarts": "^4.2.0-rc.2",
     "element-ui": "^2.3.6",
-    "node-sass": "^4.11.0",
+    "node-sass": "^7.0.0",
     "sass": "^1.16.1",
     "sass-loader": "^7.1.0",
     "script-loader": "^0.7.2",
